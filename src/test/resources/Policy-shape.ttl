@@ -1,0 +1,12 @@
+@prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+odrl:PolicyShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Policy ;
+    sh:property [
+        sh:path [ 
+            sh:alternativePath ( odrl:permission odrl:prohibition odrl:obligation ) 
+        ] ;
+        sh:minCount 1 ;
+    ] .
