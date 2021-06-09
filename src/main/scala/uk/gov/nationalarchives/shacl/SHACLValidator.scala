@@ -4,8 +4,8 @@ import org.apache.jena.riot.RDFDataMgr
 import org.apache.jena.shacl.ShaclValidator
 import org.slf4j.LoggerFactory
 
-import scala.jdk.CollectionConverters._
 import java.net.URL
+import scala.jdk.CollectionConverters._
 
 case class SHACLValidator(shapesUrl: URL) {
 
@@ -14,8 +14,9 @@ case class SHACLValidator(shapesUrl: URL) {
   private val validator = ShaclValidator.get()
 
   def isValid(dataUrl: URL): Boolean = {
+    val dataModel = RDFDataMgr.loadModel(dataUrl.toString)
     val shapesGraph = RDFDataMgr.loadGraph(shapesUrl.toString)
-    val dataGraph = RDFDataMgr.loadGraph(dataUrl.toString)
+    val dataGraph = dataModel.getGraph
     if (validator.conforms(shapesGraph, dataGraph)) {
       true
     } else {
