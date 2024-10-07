@@ -11,7 +11,7 @@ tsh:GeoPointShape1
     sh:ignoredProperties ( rdf:type ) ;
     sh:property          [ sh:path     ies:isIdentifiedBy ;
                            sh:minCount 2 ;
-                           sh:maxCount 2 ; ] ;
+                           sh:maxCount 2 ] ;
     sh:property          [ sh:path                ies:isIdentifiedBy ;
                            sh:qualifiedValueShape tsh:latitudeValue ;
                            sh:qualifiedValueShapesDisjoint true ;
