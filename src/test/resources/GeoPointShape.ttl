@@ -1,0 +1,42 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ies: <http://ies.data.gov.uk/ontology/ies4#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tsh: <http://telicent.io/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+tsh:GeoPointShape1
+    a                    sh:NodeShape ;
+    sh:targetClass       ies:GeoPoint ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property          [ sh:path     ies:isIdentifiedBy ;
+                           sh:minCount 2 ;
+                           sh:maxCount 2 ; ] ;
+    sh:property          [ sh:path                ies:isIdentifiedBy ;
+                           sh:qualifiedValueShape tsh:latitudeValue ;
+                           sh:qualifiedValueShapesDisjoint true ;
+                           sh:qualifiedMinCount   1 ;
+                           sh:qualifiedMaxCount   1 ] ;
+    sh:property          [ sh:path                ies:isIdentifiedBy ;
+                           sh:qualifiedValueShape tsh:longitudeValue ;
+                           sh:qualifiedValueShapesDisjoint true ;
+                           sh:qualifiedMinCount   1 ;
+                           sh:qualifiedMaxCount   1 ]
+.
+
+tsh:latitudeValue
+    sh:class ies:Latitude ;
+    sh:node  tsh:repValueFloat ;
+.
+
+tsh:longitudeValue
+    sh:class ies:Longitude ;
+    sh:node  tsh:repValueFloat ;
+.
+
+tsh:repValueFloat
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property          [ sh:path     ies:representationValue ;
+                           sh:datatype xsd:float ; ] ;
+.

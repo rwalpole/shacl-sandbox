@@ -1,10 +1,10 @@
-import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport._
+import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.*
 
 name := "shacl-sandbox"
 
 version := "0.1"
 
-scalaVersion := "2.13.6"
+scalaVersion := "2.13.15"
 
 scalacOptions ++= Seq(
   "-P:wartremover:traverser:org.wartremover.warts.Unsafe",
@@ -45,10 +45,10 @@ scalacOptions ++= Seq(
   "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
 )
 
-libraryDependencies += "org.apache.jena" % "apache-jena-libs" % "4.1.0"
-libraryDependencies += "org.slf4j"       % "slf4j-api"        % "1.7.30"
-libraryDependencies += "org.slf4j"       % "slf4j-log4j12"    % "1.7.30"
-libraryDependencies += "org.scalatest"   %% "scalatest"       % "3.2.7" % "test"
-libraryDependencies += "org.mockito"     % "mockito-core"     % "3.9.0" % "test"
+libraryDependencies += "org.apache.jena" % "apache-jena-libs" % "5.1.0"
+libraryDependencies += "org.slf4j"       % "slf4j-api"        % "2.0.12"
+libraryDependencies += "org.slf4j"       % "slf4j-log4j12"    % "2.0.13"
+libraryDependencies += "org.scalatest"   %% "scalatest"       % "3.2.19" % "test"
+libraryDependencies += "org.mockito"     % "mockito-core"     % "5.11.0" % "test"
 
 scalafmtOnCompile := true
