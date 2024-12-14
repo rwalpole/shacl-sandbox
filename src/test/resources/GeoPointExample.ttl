@@ -1,0 +1,14 @@
+@prefix data: <http://telicent.io/data#> .
+@prefix ies: <http://ies.data.gov.uk/ontology/ies4#> .
+@prefix telicent: <http://telicent.io/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://geohash.org/eufmc> a ies:GeoPoint ;
+                           ies:isIdentifiedBy <http://geohash.org/eufmc_LAT> ,
+                           <http://geohash.org/eufmc_LON> .
+
+<http://geohash.org/eufmc_LAT> a ies:Latitude ;
+                               ies:representationValue "27.748"^^xsd:float .
+
+<http://geohash.org/eufmc_LON> a ies:Longitude ;
+                               ies:representationValue "-8.035"^^xsd:float .

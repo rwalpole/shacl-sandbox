@@ -17,4 +17,12 @@ class SHACLValidatorSpec extends AnyWordSpec with Matchers with TryValues {
     }
   }
 
+  "A GeoPoint" must {
+    val shapeUri = getClass.getResource("/" + "GeoPointShape.ttl")
+    val validator = SHACLValidator(shapeUri)
+    "have exactly one latitude and one longitude value" in {
+      validator.isValid(getClass.getResource("/" + "GeoPointExample.ttl")) mustBe true
+    }
+  }
+
 }
